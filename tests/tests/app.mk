@@ -1,3 +1,4 @@
+CROSS_COMPILE = riscv32-unknown-linux-gnu-
 CC = $(CROSS_COMPILE)gcc
 CFLAGS = -Wall -Werror
 LINK = $(CROSS_COMPILE)ld
@@ -19,9 +20,11 @@ APP_BIN = $(patsubst %,%.eapp_riscv,$(APP))
 all: $(APP_BIN)
 
 $(APP_C_OBJS): %.o: %.c
+	echo $(CC) 
 	$(CC) $(CFLAGS) -c $<
 
 $(APP_BIN): %.eapp_riscv : $(APP_C_OBJS) $(APP_A_OBJS) $(SDK_APP_LIB)
+	echo $(LINK)
 	$(LINK) $(LDFLAGS) -o $@ $^ -T $(APP_LDS)
 	chmod -x $@
 

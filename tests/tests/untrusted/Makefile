@@ -1,3 +1,4 @@
+CROSS_COMPILE = riscv32-unknown-linux-gnu-
 APP = untrusted
 APP_C_SRCS= untrusted.c edge_wrapper.c
 CC = $(CROSS_COMPILE)gcc

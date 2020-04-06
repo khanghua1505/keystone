@@ -1,3 +1,4 @@
+CROSS_COMPILE = riscv32-unknown-linux-gnu-
 APP = attestation
 APP_C_SRCS= attestation.c edge_wrapper.c
 

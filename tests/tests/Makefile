@@ -1,4 +1,4 @@
-CROSS_COMPILE ?= riscv64-unknown-linux-gnu-
+CROSS_COMPILE = riscv32-unknown-linux-gnu-
 CC = $(CROSS_COMPILE)g++
 OBJCOPY = $(CROSS_COMPILE)objcopy
 

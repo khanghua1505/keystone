@@ -2,9 +2,9 @@
 
 set -e
 
-if [[ $CROSS_COMPILE = "" ]]; then
-  CROSS_COMPILE=riscv64-unknown-linux-gnu-
-fi
+#if [[ $CROSS_COMPILE = "" ]]; then
+  CROSS_COMPILE=riscv32-unknown-linux-gnu-
+#fi
 
 ################################################################
 #                   Replace the variables                      #
@@ -48,6 +48,7 @@ if ! (
   $(command -v ${CROSS_COMPILE}g++ > /dev/null) &&
   $(command -v ${CROSS_COMPILE}gcc > /dev/null)
   ); then
+  echo "$CROSS_COMPILE"
   echo "riscv tools are not in PATH"
   exit 1
 fi
@@ -67,6 +68,8 @@ fi
 ################################################################
 #                       Build Enclave                          #
 ################################################################
+
+echo $(CROSS_COMPILE)
 
 # create a build directory
 OUTPUT_FILES_DIR=$OUTPUT_DIR/files
